@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.nanda
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [annotation-api, app-name, http-client, http-session, java, java-application, junit, maven, mockito, mongo-reactive, netty-server, readme, shade, slf4j-simple, testcontainers, yaml]
