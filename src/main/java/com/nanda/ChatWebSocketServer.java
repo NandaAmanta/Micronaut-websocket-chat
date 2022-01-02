@@ -28,11 +28,11 @@ import java.util.function.Predicate;
  * @author ASUS
  */
 @ServerWebSocket("/chat/{topic}/{username}")
-public class WebSocketServer {
+public class ChatWebSocketServer {
 
     private final WebSocketBroadcaster broadcaster;
 
-    public WebSocketServer(WebSocketBroadcaster broadcaster) {
+    public ChatWebSocketServer(WebSocketBroadcaster broadcaster) {
         this.broadcaster = broadcaster;
     }
 
