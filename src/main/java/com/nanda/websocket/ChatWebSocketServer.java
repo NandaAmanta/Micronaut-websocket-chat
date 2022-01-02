@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.nanda;
+package com.nanda.websocket;
 
+import com.nanda.payloadModel.MessageRequest;
 import io.micronaut.websocket.WebSocketBroadcaster;
 import io.micronaut.websocket.WebSocketSession;
 import io.micronaut.websocket.annotation.OnClose;
@@ -22,6 +23,7 @@ import io.micronaut.websocket.annotation.OnMessage;
 import io.micronaut.websocket.annotation.OnOpen;
 import io.micronaut.websocket.annotation.ServerWebSocket;
 import java.util.function.Predicate;
+import javax.validation.Valid;
 
 /**
  *
@@ -43,8 +45,8 @@ public class ChatWebSocketServer {
     }
 
     @OnMessage
-    public void onMessage(String topic, String username, String message, WebSocketSession session) {
-        String msg = username + " : " + message;
+    public void onMessage(String topic, String username, @Valid MessageRequest message, WebSocketSession session) {
+        String msg = username + " : " + message.getMessage();
         broadcaster.broadcastSync(msg, isValid(topic));
     }
 
