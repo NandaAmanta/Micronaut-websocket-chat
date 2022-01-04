@@ -1,4 +1,6 @@
 micronaut:
+  server:
+    idle-timeout: 30m
   application:
     name: ws
   session:
